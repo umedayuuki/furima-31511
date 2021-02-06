@@ -55,7 +55,7 @@
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
 | postalcode     | string     | null: false                    |
-| area_id        | string     | null: false                    |
+| area_id        | integer    | null: false                    |
 | munitipalities | string     | null: false                    |
 | address        | string     | null: false                    |
 | phonenumber    | string     | null: false                    |

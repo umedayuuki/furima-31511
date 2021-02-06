@@ -6,12 +6,12 @@
 | ------------------ | ------ | ----------- |
 | nickname           | string | null: false |
 | email              | string | null: false |
-| password           | string | null: false |
+| encrypted_password | string | null: false |
 | firstname          | string | null: false |
 | lastname           | string | null: false |
 | firstname furigana | string | null: false |
 | lastname furigana  | string | null: false |
-| bithday            | string | null: false |
+| bithday            | date   | null: false |
 
 ### Association
 
@@ -22,16 +22,15 @@
 
 | Column      | Type       | Options                        |
 | ----------- | ---------- | ------------------------------ |
-| images      | string     | null: false                    |
-| itemname    | string     | null: false                    |
-| price       | string     | null: false                    |
-| description | string     | null: false                    |
-| category    | string     | null: false                    |
-| state       | string     | null: false                    |
-| burden      | string     | null: false                    |
-| area        | string     | null: false                    |
-| days        | string     | null: false                    |
-| users_id    | references | null: false, foreign_key: true |
+| item_name   | string     | null: false                    |
+| price       | integer    | null: false                    |
+| description | text       | null: false                    |
+| category_id | integer    | null: false                    |
+| state_id    | integer    | null: false                    |
+| burden_id   | integer    | null: false                    |
+| area_id     | integer    | null: false                    |
+| days_id     | integer    | null: false                    |
+| user        | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -40,10 +39,10 @@
 
 ## purchase テーブル
 
-| Column   | Type       | Options                        |
-| -------- | ---------- | ------------------------------ |
-| users_id | references | null: false, foreign_key: true |
-| items_id | references | null: false, foreign_key: true |
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| user   | references | null: false, foreign_key: true |
+| item   | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -56,11 +55,11 @@
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
 | postalcode     | string     | null: false                    |
-| prefectures    | string     | null: false                    |
+| area           | string     | null: false                    |
 | munitipalities | string     | null: false                    |
 | address        | string     | null: false                    |
 | phonenumber    | string     | null: false                    |
-| puchase_id     | references | null: false, foreign_key: true |
+| puchase        | references | null: false, foreign_key: true |
 
 ### Association
 

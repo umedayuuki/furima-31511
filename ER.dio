@@ -1,4 +1,4 @@
-<mxfile host="65bd71144e" modified="2021-02-06T07:33:43.258Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.53.0 Chrome/87.0.4280.141 Electron/11.2.1 Safari/537.36" etag="BM6GWK6SrbeM3ILhsSvu" version="13.10.0" type="embed">
+<mxfile host="65bd71144e" modified="2021-02-06T07:49:57.190Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.53.0 Chrome/87.0.4280.141 Electron/11.2.1 Safari/537.36" etag="lHk9ic2E1J_PObJHvNG1" version="13.10.0" type="embed">
     <diagram id="k1YN80HeexdoRviu-JpK" name="ページ1">
         <mxGraphModel dx="968" dy="583" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
@@ -52,7 +52,7 @@
                 <mxCell id="80" value="user&#10;&#10;items" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="1" vertex="1">
                     <mxGeometry x="110" y="336" width="90" height="64" as="geometry"/>
                 </mxCell>
-                <mxCell id="85" value="postal code&#10;&#10;prefectures&#10;&#10;municipalities&#10;&#10;address&#10;&#10;phone number&#10;&#10;purchase&#10;&#10;building_name" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="1" vertex="1">
+                <mxCell id="85" value="postal code&#10;&#10;area_id&#10;&#10;municipalities&#10;&#10;address&#10;&#10;phone number&#10;&#10;purchase&#10;&#10;building_name" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="1" vertex="1">
                     <mxGeometry x="380" y="400" width="240" height="210" as="geometry"/>
                 </mxCell>
             </root>

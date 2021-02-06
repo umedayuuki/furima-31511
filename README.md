@@ -2,21 +2,21 @@
 
 ## users テーブル
 
-| Column             | Type   | Options     |
-| ------------------ | ------ | ----------- |
-| nickname           | string | null: false |
-| email              | string | null: false |
-| encrypted_password | string | null: false |
-| firstname          | string | null: false |
-| lastname           | string | null: false |
-| firstname furigana | string | null: false |
-| lastname furigana  | string | null: false |
-| bithday            | date   | null: false |
+| Column             | Type   | Options                   |
+| ------------------ | ------ | ------------------------- |
+| nickname           | string | null: false               |
+| email              | string | null: false, unique: true |
+| encrypted_password | string | null: false               |
+| firstname          | string | null: false               |
+| lastname           | string | null: false               |
+| firstname_furigana | string | null: false               |
+| lastname_furigana  | string | null: false               |
+| bithday            | date   | null: false               |
 
 ### Association
 
 - has_many :items
-- has_many :purchase
+- has_many :purchases
 
 ## items テーブル
 
@@ -48,9 +48,9 @@
 
 - belongs_to :item
 - belongs_to :user
-- has_one :sipping address
+- has_one :shipping_address
 
-## sipping address テーブル
+## shipping_address テーブル
 
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
@@ -59,7 +59,8 @@
 | munitipalities | string     | null: false                    |
 | address        | string     | null: false                    |
 | phonenumber    | string     | null: false                    |
-| puchase        | references | null: false, foreign_key: true |
+| puchase        | references | null: false, foreign_key: true | 
+| building_name  | string     |                                |
 
 ### Association
 

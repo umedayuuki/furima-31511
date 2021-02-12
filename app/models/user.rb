@@ -7,12 +7,14 @@ class User < ApplicationRecord
   has_many :items
   has_many :purchases
 
-  validates :nickname, presence: true
+  with_options presence: true do
+    validates :nickname
+    validates :firstname, format: { with: /\A[ぁ-んァ-ヶ一-龥々]+\z/ }
+    validates :lastname, format: { with: /\A[ぁ-んァ-ヶ一-龥々]+\z/ }
+    validates :firstname_furigana, format: { with: /\A[ァ-ヶー－]+\z/ }
+    validates :lastname_furigana, format: { with: /\A[ァ-ヶー－]+\z/ }
+    validates :bithday
+  end
   VALID_PASSWORD_REGEX = /\A[a-z0-9]+\z/i
   validates :password, format: { with: VALID_PASSWORD_REGEX }
-  validates :firstname, presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龥々]+\z/ }
-  validates :lastname, presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龥々]+\z/ }
-  validates :firstname_furigana, presence: true, format: { with: /\A[ァ-ヶー－]+\z/ }
-  validates :lastname_furigana, presence: true, format: { with: /\A[ァ-ヶー－]+\z/ }
-  validates :bithday, presence: true
 end

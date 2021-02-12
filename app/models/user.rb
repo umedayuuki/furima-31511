@@ -9,11 +9,15 @@ class User < ApplicationRecord
 
   with_options presence: true do
     validates :nickname
-    validates :firstname, format: { with: /\A[ぁ-んァ-ヶ一-龥々]+\z/ }
-    validates :lastname, format: { with: /\A[ぁ-んァ-ヶ一-龥々]+\z/ }
-    validates :firstname_furigana, format: { with: /\A[ァ-ヶー－]+\z/ }
-    validates :lastname_furigana, format: { with: /\A[ァ-ヶー－]+\z/ }
     validates :bithday
+    with_options format: { with: /\A[ぁ-んァ-ヶ一-龥々]+\z/ } do
+      validates :firstname
+      validates :lastname
+    end
+    with_options format: { with: /\A[ァ-ヶー－]+\z/ } do
+      validates :firstname_furigana
+      validates :lastname_furigana
+    end
   end
   VALID_PASSWORD_REGEX = /\A[a-z0-9]+\z/i
   validates :password, format: { with: VALID_PASSWORD_REGEX }

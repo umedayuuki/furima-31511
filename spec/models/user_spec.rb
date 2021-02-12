@@ -118,6 +118,16 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include('Lastname furigana is invalid')
       end
+      it 'firstname_furiganaがカタカナ以外の全角文字だと登録できないこと' do
+        @user.firstname_furigana = 'かたかな'
+        @user.valid?
+        expect(@user.errors.full_messages).to include('Firstname furigana is invalid')
+      end
+      it 'lastname_furiganaがカタカナ以外の全角文字だと登録できないこと' do
+        @user.lastname_furigana = 'かたかな'
+        @user.valid?
+        expect(@user.errors.full_messages).to include('Lastname furigana is invalid')
+      end
     end
   end
 end

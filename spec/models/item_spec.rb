@@ -33,30 +33,30 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Description can't be blank")
       end
-      it 'category_idが空では出品できない' do
-        @item.category_id = ''
+      it 'category_idが1では出品できない' do
+        @item.category_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include('Category is not a number')
+        expect(@item.errors.full_messages).to include('Category must be other than 1')
       end
-      it 'states_idが空では出品できない' do
-        @item.states_id = ''
+      it 'states_idが1では出品できない' do
+        @item.states_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include('States is not a number')
+        expect(@item.errors.full_messages).to include('States must be other than 1')
       end
-      it 'bueden_idが空では出品できない' do
-        @item.bueden_id = ''
+      it 'bueden_idが1では出品できない' do
+        @item.bueden_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include('Bueden is not a number')
+        expect(@item.errors.full_messages).to include('Bueden must be other than 1')
       end
-      it 'area_idが空では出品できない' do
-        @item.area_id = ''
+      it 'area_idが1では出品できない' do
+        @item.area_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include('Area is not a number')
+        expect(@item.errors.full_messages).to include('Area must be other than 1')
       end
-      it 'day_idが空では出品できない' do
-        @item.day_id = ''
+      it 'day_idが1では出品できない' do
+        @item.day_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include('Day is not a number')
+        expect(@item.errors.full_messages).to include('Day must be other than 1')
       end
       it 'item_nameが空では出品できない' do
         @item.item_name = ''
@@ -73,8 +73,18 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include('Price is not included in the list')
       end
+      it '価格の範囲が￥300〜￥9999999の間以外では出品できない' do
+        @item.price = 10000000
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Price is not included in the list')
+      end
       it '価格は半角数字以外で入力すると出品できない' do
         @item.price = 'suuzi'
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Price is not included in the list', 'Price is not a number')
+      end
+      it '価格は半角数字以外で入力すると出品できない' do
+        @item.price = '１０００'
         @item.valid?
         expect(@item.errors.full_messages).to include('Price is not included in the list', 'Price is not a number')
       end

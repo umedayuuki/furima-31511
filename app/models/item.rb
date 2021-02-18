@@ -3,7 +3,7 @@ class Item < ApplicationRecord
   has_one :purchase
   has_one_attached :image
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :Category, :States, :Bueden, :Area, :Day
+  belongs_to :category, :states, :bueden, :area, :day
 
   with_options presence: true do
     validates :image

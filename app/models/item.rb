@@ -3,7 +3,11 @@ class Item < ApplicationRecord
   # has_one :purchase
   has_one_attached :image
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :category, :states, :bueden, :area, :day
+  belongs_to_active_hash :category
+  belongs_to_active_hash :state
+  belongs_to_active_hash :burden
+  belongs_to_active_hash :area
+  belongs_to_active_hash :day
 
   with_options presence: true do
     validates :image
@@ -14,7 +18,7 @@ class Item < ApplicationRecord
   with_options numericality: { other_than: 1 } do
     validates :category_id
     validates :states_id
-    validates :bueden_id
+    validates :burden_id
     validates :area_id
     validates :day_id
   end

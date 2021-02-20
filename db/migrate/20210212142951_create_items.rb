@@ -6,7 +6,7 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.text :description
       t.integer :category_id
       t.integer :states_id
-      t.integer :bueden_id
+      t.integer :burden_id
       t.integer :area_id
       t.integer :day_id
       t.references :user, foreign_key: true

@@ -7,7 +7,7 @@ RSpec.describe Item, type: :model do
 
   describe '商品出品' do
     context '商品出品ができる場合' do
-      it 'image、item_name、price、description、category_id、states_id、bueden_id、area_id、day_idが存在すれば出品できる' do
+      it 'image、item_name、price、description、category_id、status_id、bueden_id、area_id、day_idが存在すれば出品できる' do
         expect(@item).to be_valid
       end
       it '価格は半角数字で￥300〜￥9999999の間であれば出品できる' do
@@ -38,10 +38,10 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include('Category must be other than 1')
       end
-      it 'states_idが1では出品できない' do
-        @item.states_id = '1'
+      it 'status_idが1では出品できない' do
+        @item.status_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include('States must be other than 1')
+        expect(@item.errors.full_messages).to include('Status must be other than 1')
       end
       it 'bueden_idが1では出品できない' do
         @item.bueden_id = '1'

@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2021_02_12_161820) do
     t.integer "price"
     t.text "description"
     t.integer "category_id"
-    t.integer "states_id"
+    t.integer "status_id"
     t.integer "burden_id"
     t.integer "area_id"
     t.integer "day_id"
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 2021_02_12_161820) do
     t.string "lastname", default: "", null: false
     t.string "firstname_furigana", default: "", null: false
     t.string "lastname_furigana", default: "", null: false
-    t.date "bithday", null: false
+    t.date "birthday", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

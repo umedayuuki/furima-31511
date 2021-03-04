@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_item, only: [:index, :create]
   before_action :set_redirect
+  before_action :set2_redirect
 
   def index
     @order = PurchaseShippingAddress.new
@@ -39,6 +40,10 @@ class OrdersController < ApplicationController
 
   def set_redirect
     redirect_to root_path if @item.user_id == current_user.id
+  end
+
+  def set2_redirect
+    redirect_to root_path if @item.purchase.present?
   end
 end
 

@@ -5,7 +5,7 @@ FactoryBot.define do
     description { '説明' }
     category_id { 2 }
     status_id { 2 }
-    bueden_id { 2 }
+    burden_id { 2 }
     area_id { 2 }
     day_id { 2 }
     after(:build) do |message|

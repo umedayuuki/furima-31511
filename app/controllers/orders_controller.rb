@@ -2,7 +2,6 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_item, only: [:index, :create]
   before_action :set_redirect
-  before_action :set2_redirect
 
   def index
     @order = PurchaseShippingAddress.new
@@ -22,7 +21,9 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:purchase_shipping_address).permit(:postalcode, :area_id, :munitipalities, :address, :phonenumber, :building_name, :category_id,).merge(user_id: current_user.id, item_id: params[:item_id], token: params[:token])
+    params.require(:purchase_shipping_address).permit(:postalcode, :area_id, :munitipalities, :address, :phonenumber, :building_name, :category_id).merge(
+      user_id: current_user.id, item_id: params[:item_id], token: params[:token]
+    )
   end
 
   def set_item
@@ -30,7 +31,7 @@ class OrdersController < ApplicationController
   end
 
   def pay_item
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     Payjp::Charge.create(
       amount: @item.price,
       card: order_params[:token],
@@ -39,11 +40,6 @@ class OrdersController < ApplicationController
   end
 
   def set_redirect
-    redirect_to root_path if @item.user_id == current_user.id
-  end
-
-  def set2_redirect
-    redirect_to root_path if @item.purchase.present?
+    redirect_to root_path if @item.user_id == current_user.id || @item.purchase.present?
   end
 end
-

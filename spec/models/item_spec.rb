@@ -43,8 +43,8 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include('Status must be other than 1')
       end
-      it 'bueden_idが1では出品できない' do
-        @item.bueden_id = '1'
+      it 'burden_idが1では出品できない' do
+        @item.burden_id = '1'
         @item.valid?
         expect(@item.errors.full_messages).to include('Bueden must be other than 1')
       end

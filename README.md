@@ -11,7 +11,7 @@
 | lastname           | string | null: false               |
 | firstname_furigana | string | null: false               |
 | lastname_furigana  | string | null: false               |
-| birthday            | date   | null: false               |
+| birthday           | date   | null: false               |
 
 ### Association
 
@@ -26,7 +26,7 @@
 | price       | integer    | null: false                    |
 | description | text       | null: false                    |
 | category_id | integer    | null: false                    |
-| status_id    | integer    | null: false                    |
+| status_id   | integer    | null: false                    |
 | burden_id   | integer    | null: false                    |
 | area_id     | integer    | null: false                    |
 | day_id      | integer    | null: false                    |
@@ -59,7 +59,7 @@
 | munitipalities | string     | null: false                    |
 | address        | string     | null: false                    |
 | phonenumber    | string     | null: false                    |
-| puchase        | references | null: false, foreign_key: true | 
+| purchase       | references | null: false, foreign_key: true | 
 | building_name  | string     |                                |
 
 ### Association
